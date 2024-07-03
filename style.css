@@ -9,6 +9,7 @@
     height: 100vh;
     background: #161616;
   }
+*/ Menu Animation */
   .menu {
     position: relative;
     width: 260px;
@@ -95,6 +96,7 @@
     transform: rotate(315deg);
   }
 
+*/ Cursor */
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap')
 
 *{
