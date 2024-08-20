@@ -4,44 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Icon Menu</title>
-  <!-- Link to the external CSS file for styling -->
   <link rel="stylesheet" href="style.css" />
-  <!-- jQuery library for DOM manipulation -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Link to the external JavaScript file for additional scripts -->
   <script src="js/scripts.js"></script>
 </head>
 <body>
 
   <!-- Icon menu container -->
   <ul class="menu">
-    <!-- Menu toggle button -->
     <div class="menuToggle"><ion-icon name="add-outline"></ion-icon></div>
-    <!-- Menu items with icons and colors -->
-    <li style="--i: 0; --clr: #ff2972">
-      <a href="#"><ion-icon name="home-outline"></ion-icon></a>
-    </li>
-    <li style="--i: 1; --clr: #fee800">
-      <a href="#"><ion-icon name="settings-outline"></ion-icon></a>
-    </li>
-    <li style="--i: 2; --clr: #04fc43">
-      <a href="#"><ion-icon name="mail-outline"></ion-icon></a>
-    </li>
-    <li style="--i: 3; --clr: #fe00f1">
-      <a href="#"><ion-icon name="key-outline"></ion-icon></a>
-    </li>
-    <li style="--i: 4; --clr: #00b0fe">
-      <a href="#"><ion-icon name="camera-outline"></ion-icon></a>
-    </li>
-    <li style="--i: 5; --clr: #fea600">
-      <a href="#"><ion-icon name="game-controller-outline"></ion-icon></a>
-    </li>
-    <li style="--i: 6; --clr: #a529ff">
-      <a href="#"><ion-icon name="person-outline"></ion-icon></a>
-    </li>
-    <li style="--i: 7; --clr: #01bdab">
-      <a href="#"><ion-icon name="videocam-outline"></ion-icon></a>
-    </li>
+    <li style="--i: 0; --clr: #ff2972"><a href="#"><ion-icon name="home-outline"></ion-icon></a></li>
+    <li style="--i: 1; --clr: #fee800"><a href="#"><ion-icon name="settings-outline"></ion-icon></a></li>
+    <li style="--i: 2; --clr: #04fc43"><a href="#"><ion-icon name="mail-outline"></ion-icon></a></li>
+    <li style="--i: 3; --clr: #fe00f1"><a href="#"><ion-icon name="key-outline"></ion-icon></a></li>
+    <li style="--i: 4; --clr: #00b0fe"><a href="#"><ion-icon name="camera-outline"></ion-icon></a></li>
+    <li style="--i: 5; --clr: #fea600"><a href="#"><ion-icon name="game-controller-outline"></ion-icon></a></li>
+    <li style="--i: 6; --clr: #a529ff"><a href="#"><ion-icon name="person-outline"></ion-icon></a></li>
+    <li style="--i: 7; --clr: #01bdab"><a href="#"><ion-icon name="videocam-outline"></ion-icon></a></li>
   </ul>
 
   <!-- Audio elements for sound effects -->
@@ -49,18 +28,16 @@
     <source src="audio/close.mp3" type="audio/mpeg">
     <source src="audio/close.ogg" type="audio/ogg">
   </audio>
-
   <audio id="openSound">
     <source src="audio/open.mp3" type="audio/mpeg">
     <source src="audio/open.ogg" type="audio/ogg">
   </audio>
-
   <audio id="hoverSound">
     <source src="audio/beep.mp3" type="audio/mpeg">
     <source src="audio/beep.ogg" type="audio/ogg">
   </audio>
 
-  <!-- JavaScript code to handle menu toggle and hover sounds -->
+  <!-- JavaScript for menu and cursor effects -->
   <script>
     $(document).ready(function() {
       var toggleSound = $("#toggleSound")[0];
@@ -72,16 +49,16 @@
 
       menuToggle.onclick = function () {
         menu.classList.toggle("active");
-        toggleSound.currentTime = 0; // Reset the audio to start from the beginning
+        toggleSound.currentTime = 0;
         toggleSound.play();
         if (menu.classList.contains("active")) {
-          openSound.currentTime = 0; // Reset the audio to start from the beginning
+          openSound.currentTime = 0;
           openSound.play();
         }
       };
 
       $("a").mouseenter(function() {
-        hoverSound.currentTime = 0; // Reset the audio to start from the beginning
+        hoverSound.currentTime = 0;
         hoverSound.play();
       });
     });
@@ -97,18 +74,17 @@
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
   ></script>
 
+  <!-- Cursor Animation -->
   <div class="cursor"></div>
-
   <section class="main">
-      <h1>Cursor Animation</h1>
+    <h1>Cursor Animation</h1>
   </section>
 
-  <script type="text/javascript">
-  const cursor = document.querySelector(".cursor");
-  var timeout;
+  <script>
+    const cursor = document.querySelector(".cursor");
+    var timeout;
 
-  //follow cursor on mousemove
-  document.addEventListener("mousemove", (e) => {
+    document.addEventListener("mousemove", (e) => {
       let x = e.pageX;
       let y = e.pageY;
 
@@ -116,18 +92,16 @@
       cursor.style.left = x + "px";
       cursor.style.display = "block";
 
-  //cursor effect on mouse stopped
-  function mouseStopped(){
-      cursor.style.display = "none";
-  }
-  clearTimeout(timeout);
-  timeout = setTimeout (mouseStopped, 1000);
-  });
+      function mouseStopped(){
+          cursor.style.display = "none";
+      }
+      clearTimeout(timeout);
+      timeout = setTimeout(mouseStopped, 1000);
+    });
 
-  //cursor effect on mouseout
-  document.addEventListener("mouseout", () => {
+    document.addEventListener("mouseout", () => {
       cursor.style.display = "none";
-  });
+    });
   </script>
 
 </body>
