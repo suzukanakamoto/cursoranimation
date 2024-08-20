@@ -1,7 +1,11 @@
+/* Basic Reset */
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
   }
+  
   body {
     display: flex;
     align-items: center;
@@ -9,7 +13,8 @@
     height: 100vh;
     background: #161616;
   }
-*/ Menu Animation */
+  
+  /* Menu Animation */
   .menu {
     position: relative;
     width: 260px;
@@ -18,6 +23,7 @@
     align-items: center;
     justify-content: center;
   }
+  
   .menu li {
     position: absolute;
     left: 0;
@@ -27,9 +33,11 @@
     transition: 0.5s;
     transition-delay: calc(0.1s * var(--i));
   }
+  
   .menu.active li {
     transform: rotate(calc(360deg / 8 * var(--i)));
   }
+  
   .menu a {
     display: flex;
     align-items: center;
@@ -45,9 +53,11 @@
     transition-delay: 0.5s;
     filter: drop-shadow(0 0 2px var(--clr));
   }
+  
   .menu.active a {
     color: var(--clr);
   }
+  
   .menu a::before {
     content: "";
     position: absolute;
@@ -59,21 +69,23 @@
     transition: width 0.5s, height 0.5s, transform 0.5s;
     transition-delay: 0.5s, 1s, 1.5s;
   }
+  
   .menu.active a::before {
     width: 50px;
     height: 50px;
     background: #161616;
     border: 2px solid var(--clr);
-    transform: rotate(calc(0 * var(--i)));
+    transform: rotate(0);
     transition: transform 0.5s, height 0.5s, width 0.5s;
     transition-delay: 0.5s, 1.5s, 1.5s;
     border-radius: 10px;
     filter: drop-shadow(0 0 5px var(--clr));
-    rotate: 135deg;
   }
+  
   .menu.active li:hover a::before {
     background: var(--clr);
   }
+  
   .menu.active li:hover a ion-icon {
     color: #161616;
   }
@@ -92,41 +104,33 @@
     font-size: 32px;
     transition: 1.5s;
   }
+  
   .menu.active .menuToggle {
     transform: rotate(315deg);
   }
-
-*/ Cursor */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap')
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body{
+  
+  /* Cursor Animation */
+  body {
     height: 100vh;
     background: #000115;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.main{
+  }
+  
+  .main {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.main h1{
+  }
+  
+  .main h1 {
     color: rgba(255, 255, 255, 0.8);
     font-size: 65px;
-}
-
-.cursor{
+  }
+  
+  .cursor {
     z-index: 999;
     position: fixed;
     background: #2696E8;
@@ -140,24 +144,24 @@ body{
     animation: colors 5s infinite;
     transform: translate(-50%, -50%);
     display: none;
-}
-
-@keyframes colors{
-    0%{
-        filter: hue-rotate(0deg);
+  }
+  
+  @keyframes colors {
+    0% {
+      filter: hue-rotate(0deg);
     }
-    100%{
-        filter: hue-rotate(360deg);
+    100% {
+      filter: hue-rotate(360deg);
     }
-}
-
-.cursor:before{
+  }
+  
+  .cursor:before {
     content: '';
     position: absolute;
     background: #2696E8;
     width: 50px;
     height: 50px;
-    opacity: 0,2;
+    opacity: 0.2;
     transform: translate(-30%, -30%);
     border-radius: 50%;
-}
+  }
